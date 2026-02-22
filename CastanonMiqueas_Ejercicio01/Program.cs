@@ -23,3 +23,89 @@ if (age <= 0 || age > 120 && temperature < 30 || temperature > 45 && oxygenSatur
     Console.WriteLine("Error: Edad fuera de rango.");
 }
 
+else
+{
+    switch (inputUser)
+    {
+        case 1:
+            if (oxygenSaturation < 90 || systolicPressure < 90 || systolicPressure > 140)
+            {
+                Console.WriteLine("Prioridad alta");
+                Console.WriteLine("Acción sugerida: Ranimación inmediata");
+            }
+            else
+            {
+                if (temperature >= 38.5 || temperature < 35)
+                {
+                    Console.WriteLine("Prioridad alta");
+                    Console.WriteLine("Acción sugerida: Evaluación médica urgente");
+                }
+                else if (painLevel >= 5)
+                {
+                    Console.WriteLine("Prioridad media");
+                    Console.WriteLine("Acción sugerida: Evaluación médica en breve");
+                }
+                else
+                {
+                    Console.WriteLine("Prioridad baja");
+                    Console.WriteLine("Acción sugerida: Evaluación médica programada");
+                }
+            }
+            break;
+        case 2:
+            if (oxygenSaturation > 90 && oxygenSaturation <= 100 && systolicPressure >= 90 && systolicPressure <= 120 && temperature >= 35.5 && temperature < 38)
+            {
+                Console.WriteLine("Oxigeno y presion dentro del rango normal");
+                Console.WriteLine("Acción sugerida: Consulta general para chequo de salud");
+            }
+            else if (painLevel > 5)
+            {
+                Console.WriteLine("Nivel de dolor medio");
+                Console.WriteLine("Acción sugerida: Consulta médica para evaluación del dolor");
+            }
+            else
+            {
+                Console.WriteLine("pasar a emergencia");
+            }
+
+            break;
+        case 3:
+            if (age < 12 && temperature >= 38.5)
+            {
+                Console.WriteLine("Prioridad alta");
+                Console.WriteLine("Acción sugerida: Evaluación médica urgente");
+            }
+            else if (age < 12 && age >= 37.5 && temperature < 38.5)
+            {
+                Console.WriteLine("Prioridad media");
+                Console.WriteLine("Acción sugerida: Evaluación médica en breve");
+            }
+            else
+            {
+                Console.WriteLine("Prioridad baja");
+                Console.WriteLine("Acción sugerida: Evaluación médica programada");
+            }
+            break;
+
+        case 4:
+            if (age > 12 && painLevel > 6)
+            {
+                Console.WriteLine("Prioridad alta");
+                Console.WriteLine("Acción sugerida:atencion traumatologica urgente ");
+            }
+            else if (age < 12 && painLevel < 0)
+            {
+                Console.WriteLine("Prioridad Alta");
+                Console.WriteLine("Acción sugerida:atencion traumatologica urgente y llamar a un pediatra para revision general");
+            }
+            else
+            {
+                Console.WriteLine("Prioridad baja");
+                Console.WriteLine("Acción sugerida: Evaluación médica programada");
+            }
+            break;
+        default:
+            Console.WriteLine("Opción invalida");
+            break;
+    }
+}
